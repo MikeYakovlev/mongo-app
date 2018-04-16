@@ -51,6 +51,8 @@ app.get('/todos/:id', (req, res) => {
   })
 });
 
+// MongoDB URI
+// mongodb://MikeBabatunde:baba24Tunde@@ds141284.mlab.com:41284/test-mongodb
 
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
