@@ -52,7 +52,7 @@ app.get('/todos/:id', (req, res) => {
 });
 
 // MongoDB URI
-// heroku config:set MONGOLAB_URI=mongodb://MikeBabatunde:baba24Tunde@@ds111804.mlab.com:11804/test-todo
+// heroku config:set MONGOLAB_URI=mongodb://MikeBabatunde:baba24Tunde@ds111804.mlab.com:11804/test-todo
 
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
