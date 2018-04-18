@@ -107,7 +107,35 @@ app.patch('/todos/:id', (req, res) => {
 });
 
 
-// port
+
+
+
+// post(create) user auth 
+app.post('/users', (req, res) => {
+  let body = _.pick(req.body, ['name', 'email', 'password']);
+  let user = new User(body);
+
+  user.save().then((doc) => {
+    res.send(doc);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+// get(find) all users in DB
+app.get('/users', (req, res) => {
+  User.find().then((users) => {
+    res.send({users});
+  }, (e) => {
+    res.status(400).send(e);
+  })
+});
+
+
+
+
+
+// -------------------------------port
 app.listen(port, () => {
   console.log(`Started up at port ${port}`);
 });
