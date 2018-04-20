@@ -142,6 +142,19 @@ app.get('/users/me', authenticate, (req, res) => {
 });
 
 
+// ---------------------------------------login users
+app.post('/users/login', (req, res) => {
+  let body = _.pick(req.body, ['email', 'password']);
+
+  User.findByCredentials(body.email, body.password).then((user) => {
+    return user.generateAuthToken().then((token) => {
+      res.header('x-auth', token).send(user);
+    })
+  }).catch((e) => {
+    res.status(400).send();
+  });
+});
+
 
 
 // -------------------------------port
